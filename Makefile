@@ -4,9 +4,10 @@ OBJ = error.c\
 		main.c\
 		algo_first.c\
 		algo_swap.c\
-		ft_putstr.c
+		ft_putstr.c\
+		end.c
 CC = cc
-CFLAGS = -Werror -Wextra -Wall
+CFLAGS = -Werror -Wextra -Wall -g3
 SRCS = ${OBJ}
 
 OBJS = ${SRCS:.c=.o}

@@ -6,7 +6,7 @@
 /*   By: matorgue <warthog2603@gmail.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 11:53:08 by matorgue          #+#    #+#             */
-/*   Updated: 2023/11/25 14:35:15 by matorgue         ###   ########.fr       */
+/*   Updated: 2023/11/26 16:11:06 by matorgue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <stdlib.h>
 # include <unistd.h>
+# include <stdio.h>
 
 typedef struct s_list
 {
@@ -57,5 +58,15 @@ int			ft_index_a(t_list *tabA, int value);
 void		ft_swap(t_list *tabA, t_list *tabB);
 void		ft_swap_for_b(t_list *tabB);
 void		ft_swap_for_a(t_list *tabA, int value);
+void	ft_main_end(t_list *tabA);
+void	ft_down_b(t_list *tabB, int index);
+void	ft_up_b(t_list *tabB, int index);
+void	ft_up_a(t_list *tabA, int index);
+void	ft_down_a(t_list *tabA, int index);
+
+
+
+
+
 
 #endif
