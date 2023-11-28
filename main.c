@@ -6,7 +6,7 @@
 /*   By: matorgue <warthog2603@gmail.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/25 14:05:03 by matorgue          #+#    #+#             */
-/*   Updated: 2023/11/26 16:46:19 by matorgue         ###   ########.fr       */
+/*   Updated: 2023/11/28 12:55:43 by matorgue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,28 +45,21 @@ void	ft_swap_main(t_list *tabA, t_list *tabB)
 
 	i = 0;
 	ft_swap_all(tabA, tabB);
-	//printf("fin de all\n");
-	/*while (tabB[i].end != 2)
-	{
-		//printf("%d avec %ld\n", i, tabB[i].value);
-		i++;
-	}*/
 	i = 0;
 	while (tabB[0].end != 2)
 	{
 		ft_write_cout(tabA, tabB);
 		ft_swap_for_b(tabB);
-		//printf("%d avec %d\n", i, tabB[i].cout);
-		ft_swap_for_a(tabA, tabB[0].value);
-		//printf("%d avec %d\n", i, tabB[i].cout);
+		ft_swap_for_a(tabA, tabB[ft_end(tabB)].value);
 		ft_pa(tabA, tabB, 1);
 	}
 	ft_main_end(tabA);
 	i = ft_end(tabA);
-	while (i >= 0)
-		{
-			printf("%d avec %ld\n", i, tabA[i].value);
-			i--;
-		}
-	// //printf("%d avec %ld\n",i,tabB[i].value);
+	i = ft_end(tabA);
+	int j = 0;
+	while(j <= ft_end(tabA))
+	{
+		printf("%d et %ld\n",j,tabA[j].value);
+		j++;
+	}
 }

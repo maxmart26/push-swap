@@ -6,7 +6,7 @@
 /*   By: matorgue <warthog2603@gmail.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 12:01:11 by matorgue          #+#    #+#             */
-/*   Updated: 2023/11/26 17:10:41 by matorgue         ###   ########.fr       */
+/*   Updated: 2023/11/28 08:11:47 by matorgue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,16 +59,16 @@ t_list	*ft_parse(t_list *tabA, char **av, int nb)
 }
 int	ft_end(t_list *tab)
 {
-	int	i;
+	  int count;
 
-	i = 0;
-	while (tab[i].end != 1)
-	{
-		if (tab[i].end == 1)
-			return (i);
-		i++;
-	}
-	return (i);
+    count = 0;
+    if (tab[0].end == 2)
+        return (-1);
+    while (tab[count].end != 1)
+        count++;
+    if (tab[count].end == 1)
+        count++;
+    return (count - 1);
 }
 
 void	ft_ss(t_list *tabA, t_list *tabB)

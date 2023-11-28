@@ -1,10 +1,10 @@
 NAME = push_swap
-OBJ = error.c\
+OBJ = ft_putstr.c\
 		push_swap.c\
 		main.c\
 		algo_first.c\
 		algo_swap.c\
-		ft_putstr.c\
+		error.c\
 		end.c
 CC = cc
 CFLAGS = -Werror -Wextra -Wall -g3
