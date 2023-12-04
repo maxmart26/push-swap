@@ -6,7 +6,7 @@
 /*   By: matorgue <warthog2603@gmail.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/25 14:05:03 by matorgue          #+#    #+#             */
-/*   Updated: 2023/11/28 12:55:43 by matorgue         ###   ########.fr       */
+/*   Updated: 2023/12/04 06:46:32 by matorgue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,10 +56,10 @@ void	ft_swap_main(t_list *tabA, t_list *tabB)
 	ft_main_end(tabA);
 	i = ft_end(tabA);
 	i = ft_end(tabA);
-	int j = 0;
+	/*int j = 0;
 	while(j <= ft_end(tabA))
 	{
 		printf("%d et %ld\n",j,tabA[j].value);
 		j++;
-	}
+	}*/
 }

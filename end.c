@@ -6,7 +6,7 @@
 /*   By: matorgue <warthog2603@gmail.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/26 15:46:48 by matorgue          #+#    #+#             */
-/*   Updated: 2023/11/28 13:48:53 by matorgue         ###   ########.fr       */
+/*   Updated: 2023/12/04 06:46:15 by matorgue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,10 +35,8 @@ void	ft_main_end(t_list *tabA)
 	int i;
 
 	i = ft_int_max(tabA);
-		//printf("%d\n",i);
 	index = ft_end_index_a(tabA, i);
-	//index--;
-	//printf("%d\n",index);
+	index--;
 	if (ft_end(tabA) - index <= index + 1)
 		ft_up_a(tabA, index);
 	else
