@@ -6,7 +6,7 @@
 /*   By: matorgue <warthog2603@gmail.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 11:53:08 by matorgue          #+#    #+#             */
-/*   Updated: 2023/11/26 16:11:06 by matorgue         ###   ########.fr       */
+/*   Updated: 2023/12/18 19:00:58 by matorgue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,10 @@ typedef struct s_list
 	int		cout;
 }			t_list;
 
+void	ft_bzero(void *s, size_t n);
+size_t	ft_strlcpy(char *dst, const char *src, size_t size);
+void	*ft_calloc(size_t nmemb, size_t size);
+char	**ft_split(char const *s, char c);
 int			ft_error(char **av);
 int			ft_double(t_list *tabA);
 int			ft_max_error(t_list *tabA);
@@ -36,6 +40,8 @@ int			ft_end(t_list *tab);
 void		ft_ss(t_list *tabA, t_list *tabB);
 void		ft_sa(t_list *tabA, int j);
 t_list		*ft_parse(t_list *tabA, char **av, int nb);
+void	free_tab(char **tab, int row);
+t_list	*ft_parse_2(t_list *tabA, char **av, int nb);
 void		ft_sb(t_list *tabB, int j);
 void		ft_pa(t_list *tabA, t_list *tabB, int k);
 void		ft_pb(t_list *tabA, t_list *tabB, int k);

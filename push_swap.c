@@ -6,12 +6,11 @@
 /*   By: matorgue <warthog2603@gmail.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 12:01:11 by matorgue          #+#    #+#             */
-/*   Updated: 2023/11/28 08:11:47 by matorgue         ###   ########.fr       */
+/*   Updated: 2023/12/18 18:58:00 by matorgue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
 
 
 long	ft_atoi(char *str)
@@ -40,6 +39,24 @@ long	ft_atoi(char *str)
 	return (nbr);
 }
 
+t_list	*ft_parse_2(t_list *tabA, char **av, int nb)
+{
+	int	i;
+	int	nbr;
+
+	nbr = nb;
+	i = 0;
+	tabA[nb - 1].end = 1;
+	while (i < nbr)
+	{
+		tabA[nb - 1].value = ft_atoi(av[i]);
+		tabA[nb - 1].end = 0;
+		i++;
+		nb--;
+	}
+	tabA[nbr - 1].end = 1;
+	return (tabA);
+}
 t_list	*ft_parse(t_list *tabA, char **av, int nb)
 {
 	int	i;
@@ -51,7 +68,6 @@ t_list	*ft_parse(t_list *tabA, char **av, int nb)
 	while (i <= nbr)
 	{
 		tabA[nb].value = ft_atoi(av[i + 1]);
-		//////printf("%ld avec la local : %d le end %d\n",tabA[nb].value,nb,tabA[nb].end);
 		i++;
 		nb--;
 	}

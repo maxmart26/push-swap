@@ -5,6 +5,10 @@ OBJ = ft_putstr.c\
 		algo_first.c\
 		algo_swap.c\
 		error.c\
+		ft_strlcpy.c\
+		ft_split.c\
+		ft_calloc.c\
+		ft_bzero.c\
 		end.c
 CC = cc
 CFLAGS = -Werror -Wextra -Wall -g3
