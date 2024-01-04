@@ -6,7 +6,7 @@
 /*   By: matorgue <warthog2603@gmail.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/25 14:05:03 by matorgue          #+#    #+#             */
-/*   Updated: 2023/12/18 19:05:43 by matorgue         ###   ########.fr       */
+/*   Updated: 2024/01/04 11:13:40 by matorgue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,11 +96,11 @@ void	ft_swap_main(t_list *tabA, t_list *tabB)
 		ft_pa(tabA, tabB, 1);
 	}
 	ft_main_end(tabA);
-			int	nb = ft_end(tabA);
+		// 	int	nb = ft_end(tabA);
 
-		while(nb >= 0)
-		{
-			printf("valeur %ld et le end %d\n",tabA[nb].value,tabA[nb].end);
-			nb--;
-		}
+		// while(nb >= 0)
+		// {
+		// 	printf("valeur %ld et le end %d\n",tabA[nb].value,tabA[nb].end);
+		// 	nb--;
+		// }
 }

@@ -6,7 +6,7 @@
 /*   By: matorgue <warthog2603@gmail.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/25 10:22:57 by matorgue          #+#    #+#             */
-/*   Updated: 2023/12/18 16:43:39 by matorgue         ###   ########.fr       */
+/*   Updated: 2024/01/04 11:29:15 by matorgue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,11 @@ void	ft_swap_for_3(t_list *tabA)
 	i = 0;
 	while (i < 2)
 	{
+		if (tabA[2].value > tabA[1].value && tabA[2].value > tabA[0].value)
+		{
+			ft_ra(tabA, 1);
+			i++;
+		}
 		if (tabA[2].value > tabA[1].value)
 			ft_sa(tabA, 1);
 		else if (tabA[0].value != ft_int_max(tabA))
@@ -129,9 +134,7 @@ void	ft_swap_all(t_list *tabA, t_list *tabB)
 	tabB[0].end = 2;
 	x = -5;
 	if (i == 2)
-	{
 		ft_swap_for_3(tabA);
-	}
 	else
 	{
 		ft_swap_all_2(tabA,tabB,min,max,x);
