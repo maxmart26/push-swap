@@ -6,7 +6,7 @@
 /*   By: matorgue <warthog2603@gmail.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/25 10:22:57 by matorgue          #+#    #+#             */
-/*   Updated: 2024/01/04 11:29:15 by matorgue         ###   ########.fr       */
+/*   Updated: 2024/01/04 21:52:46 by matorgue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,31 @@ void	ft_swap_all_3(t_list *tabA, t_list *tabB, int i)
 		ft_pb(tabA, tabB, 1);
 }
 
-void	ft_swap_all_2(t_list *tabA, t_list *tabB ,int min,int max,int x)
+void	ft_swap_for_5(t_list *tabA, int min, int index)
+{
+	int	i;
+	i = ft_end(tabA);
+	min = 0;
+	//printf("l index %d et avec la value %ld\n",index, tabA[index].value);
+	while(index >= 0)
+	{
+		if (index == ft_end(tabA))
+			return ;
+		if (index >= 2)
+		{
+			ft_ra(tabA, 1);
+			index++;
+		}
+		else if (index < 3)
+		{
+			ft_rra(tabA, 1);
+			index--;
+		}
+		//else if (index == 1)
+			//ft_ra(tabA, 1);
+	}
+}
+void	ft_swap_all_2(t_list *tabA, t_list *tabB, int min, int max, int x)
 {
 	int	i;
 
@@ -108,17 +132,23 @@ void	ft_swap_all_2(t_list *tabA, t_list *tabB ,int min,int max,int x)
 		i = ft_end(tabA);
 		if (tabA[i].value != min && tabA[i].value != max)
 		{
-			if (tabA[i].value > tabA[0].value)
-			{
-				ft_ra(tabA, 1);
-				x++;
-			}
-			else if (tabA[i].value < tabA[0].value)
 				ft_swap_all_3(tabA, tabB, i);
 		}
 		else
 			ft_ra(tabA, 1);
 	}
+}
+int	ft_index_a_min(t_list *tabA, int min)
+{
+	int i = (0);
+
+	while(i <= ft_end(tabA))
+	{
+		if (tabA[i].value == min)
+			return (i);
+		i++;
+	}
+	return (0);
 }
 
 void	ft_swap_all(t_list *tabA, t_list *tabB)
@@ -135,9 +165,24 @@ void	ft_swap_all(t_list *tabA, t_list *tabB)
 	x = -5;
 	if (i == 2)
 		ft_swap_for_3(tabA);
+	if (i == 4)
+	{
+		ft_swap_for_5(tabA, min, ft_index_a_min(tabA, min));
+		tabB[0] = tabA[i];
+		tabB[0].end = 1;
+		tabB[1].end = 2;
+		tabA[i - 1].end = 1;
+		write(1, "pb\n", 3);
+		min = ft_int_min(tabA);
+		ft_swap_for_5(tabA, min, ft_index_a_min(tabA, min));
+		ft_pb(tabA, tabB, 1);
+		ft_swap_for_3(tabA);
+		ft_pa(tabA, tabB, 1);
+		ft_pa(tabA, tabB, 1);
+	}
 	else
 	{
-		ft_swap_all_2(tabA,tabB,min,max,x);
+		ft_swap_all_2(tabA, tabB, min, max,x);
 	}
 }
 
