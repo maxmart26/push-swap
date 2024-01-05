@@ -6,13 +6,13 @@
 /*   By: matorgue <warthog2603@gmail.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/25 13:34:56 by matorgue          #+#    #+#             */
-/*   Updated: 2023/12/04 07:10:49 by matorgue         ###   ########.fr       */
+/*   Updated: 2024/01/05 12:05:09 by matorgue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_index_b(t_list *tabB)
+int	ft_index_b(t_list *tabb)
 {
 	int	i;
 	int	cout;
@@ -21,85 +21,50 @@ int	ft_index_b(t_list *tabB)
 	cout = 10000;
 	i = 0;
 	index = 0;
-	while (i < ft_end(tabB))
+	while (i < ft_end(tabb))
 	{
-		if (cout > tabB[i].cout)
+		if (cout > tabb[i].cout)
 		{
 			index = i;
-			cout = tabB[i].cout;
+			cout = tabb[i].cout;
 		}
 		i++;
 	}
 	return (index);
 }
-void	ft_up_b(t_list *tabB, int index)
+
+void	ft_up_b(t_list *tabb, int index)
 {
-	while (index < ft_end(tabB))
+	while (index < ft_end(tabb))
 	{
-		ft_rb(tabB, 1);
+		ft_rb(tabb, 1);
 		index++;
 	}
 }
-void	ft_down_b(t_list *tabB, int index)
+
+void	ft_down_b(t_list *tabb, int index)
 {
 	while (index > -1)
 	{
-		ft_rrb(tabB, 1);
+		ft_rrb(tabb, 1);
 		index--;
 	}
 }
-void	ft_down_a(t_list *tabA, int index)
+
+void	ft_down_a(t_list *taba, int index)
 {
 	while (index >= 0)
 	{
-		ft_rra(tabA, 1);
+		ft_rra(taba, 1);
 		index--;
 	}
 }
 
-void	ft_up_a(t_list *tabA, int index)
+void	ft_up_a(t_list *taba, int index)
 {
-	while (index < ft_end(tabA))
+	while (index < ft_end(taba))
 	{
-		ft_ra(tabA, 1);
+		ft_ra(taba, 1);
 		index++;
 	}
-}
-
-void	ft_swap_for_b(t_list *tabB)
-{
-	int	index;
-
-	index = ft_index_b(tabB);
-	if (ft_end(tabB) - index <= index + 1)
-		ft_up_b(tabB, index);
-	else
-		ft_down_b(tabB, index);
-}
-
-void	ft_swap_for_a(t_list *tabA, int value)
-{
-	int	index;
-
-	index = ft_index_a(tabA, value);
-	if (ft_end(tabA) - index <= index + 1 || index == ft_end(tabA))
-		ft_up_a(tabA, index);
-	else
-		ft_down_a(tabA, index);
-}
-
-int	ft_index_a(t_list *tabA, int value)
-{
-	int j;
-
-    j = 0;
-    if (tabA[ft_end(tabA)].value > value && tabA[0].value < value)
-        return (ft_end(tabA));
-    while (j + 1 <= ft_end(tabA))
-    {
-        if (tabA[j].value > value && tabA[j + 1].value < value)
-            return (j);
-        j++;
-    }
-    return (-1);
 }

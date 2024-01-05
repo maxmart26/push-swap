@@ -6,7 +6,7 @@
 /*   By: matorgue <warthog2603@gmail.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/25 14:05:03 by matorgue          #+#    #+#             */
-/*   Updated: 2024/01/04 11:13:40 by matorgue         ###   ########.fr       */
+/*   Updated: 2024/01/05 14:25:35 by matorgue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,89 +18,71 @@ int	ft_calcul(char **str)
 	int	j;
 
 	i = 0;
-	while(str[i])
+	while (str[i])
 	{
 		j = 0;
-		while(str[i][j])
+		while (str[i][j])
 		{
-			printf("%c\n",str[i][j]);
 			j++;
 		}
 		i++;
 	}
-	printf("%d\n",i);
 	return (i);
 }
 
 t_list	*ft_main_malloc(int ac)
 {
-	t_list	*tabA;
+	t_list	*taba;
 
-	tabA = malloc(ac * sizeof(t_list));
-	if (!tabA)
+	taba = malloc(ac * sizeof(t_list));
+	if (!taba)
 		return (0);
-	return (tabA);
+	return (taba);
+}
+
+void	ft_main_for_2(char ***str, t_list **taba, t_list **tabb, char ***av)
+{
+	*str = ft_split((*av)[1], 32);
+	*taba = ft_main_malloc(ft_calcul(*str));
+	*tabb = ft_main_malloc(ft_calcul(*str));
+	*taba = ft_parse_2(*taba, *str, ft_calcul(*str));
+	free_tab(*str, ft_calcul(*str));
 }
 
 int	main(int ac, char **av)
 {
-	t_list	*tabA;
-	t_list	*tabB;
+	t_list	*taba;
+	t_list	*tabb;
 	char	**str;
 
+	if (ft_error(av) == 1 || ac < 2 || av[1][0] == '\0')
+		ft_putstr_error("Error\n");
 	if (ac == 2)
-	{
-		str = ft_split(av[1], 32);
-		tabA = ft_main_malloc(ft_calcul(str));
-		tabB = ft_main_malloc(ft_calcul(str));
-	}
+		ft_main_for_2(&str, &taba, &tabb, &av);
 	else
 	{
-		tabA = ft_main_malloc(ac);
-		tabB = ft_main_malloc(ac);
+		taba = ft_main_malloc(ac);
+		tabb = ft_main_malloc(ac);
+		taba = ft_parse(taba, av, ac - 2);
 	}
-	if (ft_error(av) == 1)
+	if (ft_double(taba) == 1 || ft_max_error(taba) == 1)
 	{
-		ft_putstr_error("Error1\n");
-		return (0);
+		ft_putstr_error("Error\n");
+		ft_free(taba, tabb);
 	}
-	if (ac == 2)
-	{
-		tabA = ft_parse_2(tabA, str, ft_calcul(str));
-		free_tab(str,ft_calcul(str));
-	}
-	else
-	{
-		tabA = ft_parse(tabA, av, ac - 2);
-	}
-	if (ft_double(tabA) == 1 || ft_max_error(tabA) == 1)
-	{
-		ft_putstr_error("Error2\n");
-		free (tabA);
-		free (tabB);
-		return (0);
-	}
-	ft_swap_main(tabA, tabB);
-	free (tabA);
-	free (tabB);
+	ft_swap_main(taba, tabb);
+	ft_free(taba, tabb);
 }
 
-void	ft_swap_main(t_list *tabA, t_list *tabB)
+void	ft_swap_main(t_list *taba, t_list *tabb)
 {
-	ft_swap_all(tabA, tabB);
-	while (tabB[0].end != 2)
+	ft_swap_all(taba, tabb);
+	while (tabb[0].end != 2)
 	{
-		ft_write_cout(tabA, tabB);
-		ft_swap_for_b(tabB);
-		ft_swap_for_a(tabA, tabB[ft_end(tabB)].value);
-		ft_pa(tabA, tabB, 1);
+		ft_write_cout(taba, tabb);
+		ft_swap_for_b(tabb);
+		ft_swap_for_a(taba, tabb[ft_end(tabb)].value);
+		ft_pa(taba, tabb, 1);
 	}
-	ft_main_end(tabA);
-		// 	int	nb = ft_end(tabA);
-
-		// while(nb >= 0)
-		// {
-		// 	printf("valeur %ld et le end %d\n",tabA[nb].value,tabA[nb].end);
-		// 	nb--;
-		// }
+	ft_main_end(taba);
 }

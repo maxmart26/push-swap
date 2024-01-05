@@ -3,12 +3,19 @@ OBJ = ft_putstr.c\
 		push_swap.c\
 		main.c\
 		algo_first.c\
+		algo_first_2.c\
+		algo_first_3.c\
 		algo_swap.c\
+		algo_swap_2.c\
 		error.c\
 		ft_strlcpy.c\
 		ft_split.c\
 		ft_calloc.c\
 		ft_bzero.c\
+		ft_pp.c\
+		ft_rrr.c\
+		ft_rr.c\
+		ft_ss.c\
 		end.c
 CC = cc
 CFLAGS = -Werror -Wextra -Wall -g3

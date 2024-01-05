@@ -6,7 +6,7 @@
 /*   By: matorgue <warthog2603@gmail.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 14:19:56 by matorgue          #+#    #+#             */
-/*   Updated: 2023/11/25 10:01:18 by matorgue         ###   ########.fr       */
+/*   Updated: 2024/01/05 14:22:16 by matorgue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ void	ft_putstr(char *str)
 void	ft_putstr_error(char *str)
 {
 	write(2, str, ft_strlen(str));
+	exit(1);
 }
 
 size_t	ft_strlen(char *str)
